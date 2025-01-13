@@ -10,20 +10,20 @@ namespace FinanceCalculator.Controllers
         private readonly ICreditCalculationService _creditCalculationService;
         private readonly FinanceCalculatorDbContext _context;
 
-        // Инжектиране на зависимостите
+        // Inject dependencies
         public CreditCalculationController(ICreditCalculationService creditCalculationService, FinanceCalculatorDbContext context)
         {
             _creditCalculationService = creditCalculationService;
             _context = context;
         }
 
-        // Действие за показване на формата за въвеждане на данни
+        // Action to display the data entry form
         public IActionResult Index()
         {
             return View();
         }
 
-        // Действие за изчисляване на месечно плащане, общо плащане и лихви
+        // Action to calculate monthly payment, total payment and interest
         [HttpPost]
         public async Task<IActionResult> Calculate(Credit credit)
         {
@@ -34,20 +34,19 @@ namespace FinanceCalculator.Controllers
 
             try
             {
-                // Изчисления
                 credit.MonthlyPayment = _creditCalculationService.CalculateMonthlyPayment(credit.Amount, credit.InterestRate, credit.DurationMonths);
                 credit.TotalPayment = _creditCalculationService.CalculateTotalPayment(credit.MonthlyPayment, credit.DurationMonths);
                 credit.TotalInterest = _creditCalculationService.CalculateTotalInterest(credit.TotalPayment, credit.Amount);
 
-                // Запазване в базата
-                _context.Credits.Add(credit);
+                // Save to database
+                _context.Credits!.Add(credit);
                 await _context.SaveChangesAsync();
 
                 return View("Result", credit);
             }
             catch (Exception)
             {
-                // Обработка на грешки
+                // Handle errors
                 ModelState.AddModelError("", "An error occurred while processing your request.");
                 return View("Index");
             }
