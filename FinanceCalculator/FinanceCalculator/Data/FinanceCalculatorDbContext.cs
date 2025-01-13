@@ -28,6 +28,18 @@ namespace FinanceCalculator.Data
                       .IsRequired()
                       .HasColumnType("decimal(18,2)"); // Interest rate
 
+                entity.Property(e => e.MonthlyPayment)
+                      .IsRequired()
+                      .HasColumnType("decimal(18,2)"); // Monthly payment
+
+                entity.Property(e => e.TotalPayment)
+                      .IsRequired()
+                      .HasColumnType("decimal(18,2)"); // Total payment
+
+                entity.Property(e => e.TotalInterest)
+                      .IsRequired()
+                      .HasColumnType("decimal(18,2)"); // Total interest
+
                 entity.Property(e => e.DurationMonths)
                       .IsRequired(); // Duration in months
             });

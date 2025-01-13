@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinanceCalculator.Migrations
 {
     [DbContext(typeof(FinanceCalculatorDbContext))]
-    [Migration("20250113141038_InitialCreate")]
+    [Migration("20250113143409_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,6 +38,15 @@ namespace FinanceCalculator.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("InterestRate")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("MonthlyPayment")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalInterest")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalPayment")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");

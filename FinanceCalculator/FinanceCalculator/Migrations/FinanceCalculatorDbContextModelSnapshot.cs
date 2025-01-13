@@ -38,6 +38,15 @@ namespace FinanceCalculator.Migrations
                     b.Property<decimal>("InterestRate")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<decimal>("MonthlyPayment")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalInterest")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalPayment")
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Credits");
