@@ -1,3 +1,6 @@
+using FinanceCalculator.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace FinanceCalculator
 {
     public class Program
@@ -9,7 +12,19 @@ namespace FinanceCalculator
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            builder.Services.AddDbContext<FinanceCalculatorDbContext>(options =>
+                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
             var app = builder.Build();
+
+            // Apply migrations on startup
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var context = services.GetRequiredService<FinanceCalculatorDbContext>();
+                context.Database.Migrate();
+            }
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
