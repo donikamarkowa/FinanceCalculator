@@ -1,0 +1,18 @@
+﻿@model FinanceCalculator.Entities.Credit
+
+@{
+    ViewData["Title"] = "Credit Calculation Result";
+}
+
+<h2>Calculation Results</h2>
+
+<div>
+    <p><strong>Amount:</strong> @Model.Amount</p>
+    <p><strong>Interest Rate:</strong> @Model.InterestRate %</p>
+    <p><strong>Duration (Months):</strong> @Model.DurationMonths</p>
+    <p><strong>Monthly Payment:</strong> @Model.MonthlyPayment.ToString("F2")</p>
+    <p><strong>Total Payment:</strong> @Model.TotalPayment.ToString("F2")</p>
+    <p><strong>Total Interest:</strong> @Model.TotalInterest.ToString("F2")</p>
+</div>
+
+<a href="@Url.Action("Index", "CreditCalculation")" class="btn btn-secondary">Go Back</a>
