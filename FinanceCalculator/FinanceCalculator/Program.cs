@@ -1,4 +1,5 @@
 using FinanceCalculator.Data;
+using FinanceCalculator.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace FinanceCalculator
@@ -14,6 +15,8 @@ namespace FinanceCalculator
 
             builder.Services.AddDbContext<FinanceCalculatorDbContext>(options =>
                  options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            builder.Services.AddScoped<ICreditCalculationService, CreditCalculationService>();
 
 
             var app = builder.Build();
@@ -43,7 +46,7 @@ namespace FinanceCalculator
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=CreditCalculation}/{action=Index}/{id?}");
 
             app.Run();
         }
