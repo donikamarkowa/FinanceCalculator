@@ -18,5 +18,14 @@ namespace FinanceCalculator.Entities
 
         [Required]
         public int DurationMonths { get; set; }
+
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal MonthlyPayment { get; set; }
+
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal TotalPayment { get; set; }
+
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal TotalInterest { get; set; }
     }
 }
