@@ -15,7 +15,7 @@ namespace FinanceCalculator.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Config of the table Credir
+            // Config of the table Credit
             modelBuilder.Entity<Credit>(entity =>
             {
                 entity.HasKey(e => e.Id); // Primary key
@@ -44,8 +44,35 @@ namespace FinanceCalculator.Data
                       .IsRequired(); // Duration in months
             });
 
+            // Config of the table Refinancing
+            modelBuilder.Entity<Refinancing>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+
+                entity.Property(e => e.CurrentLoanAmount)
+                      .IsRequired()
+                      .HasColumnType("decimal(18,2)");
+
+                entity.Property(e => e.NewInterestRate)
+                      .IsRequired()
+                      .HasColumnType("decimal(18,2)");
+
+                entity.Property(e => e.NewDurationMonths)
+                      .IsRequired();
+
+                entity.Property(e => e.MonthlyPayment)
+                      .HasColumnType("decimal(18,2)");
+
+                entity.Property(e => e.TotalPayment)
+                      .HasColumnType("decimal(18,2)");
+
+                entity.Property(e => e.Savings)
+                      .HasColumnType("decimal(18,2)");
+            });
+
         }
 
         public DbSet<Credit>? Credits { get; set; }
+        public DbSet<Refinancing>? Refinancings { get; set; }
     }
 }
