@@ -18,6 +18,7 @@ namespace FinanceCalculator
 
             builder.Services.AddScoped<ICreditCalculationService, CreditCalculationService>();
             builder.Services.AddScoped<IRefinancingCalculationService, RefinancingCalculationService>();
+            builder.Services.AddScoped<ILeasingCalculationService, LeasingCalculationService>();
 
 
             var app = builder.Build();
