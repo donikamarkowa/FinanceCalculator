@@ -70,9 +70,40 @@ namespace FinanceCalculator.Data
                       .HasColumnType("decimal(18,2)");
             });
 
+            // Config of the table Leasing
+            modelBuilder.Entity<Leasing>(entity =>
+            {
+                entity.HasKey(e => e.Id); // Primary key
+
+                entity.Property(e => e.LeasingAmount)
+                      .IsRequired()
+                      .HasColumnType("decimal(18,2)"); // Leasing amount
+
+                entity.Property(e => e.InterestRate)
+                      .IsRequired()
+                      .HasColumnType("decimal(18,2)"); // Interest rate
+
+                entity.Property(e => e.DurationMonths)
+                      .IsRequired(); // Duration in months
+
+                entity.Property(e => e.DownPayment)
+                      .IsRequired()
+                      .HasColumnType("decimal(18,2)"); // Down payment
+
+                entity.Property(e => e.MonthlyPayment)
+                      .HasColumnType("decimal(18,2)"); // Monthly payment
+
+                entity.Property(e => e.TotalPayment)
+                      .HasColumnType("decimal(18,2)"); // Total payment
+
+                entity.Property(e => e.TotalInterest)
+                      .HasColumnType("decimal(18,2)"); // Total interest
+            });
+
         }
 
         public DbSet<Credit>? Credits { get; set; }
         public DbSet<Refinancing>? Refinancings { get; set; }
+        public DbSet<Leasing>? Leasings { get; set; }
     }
 }
