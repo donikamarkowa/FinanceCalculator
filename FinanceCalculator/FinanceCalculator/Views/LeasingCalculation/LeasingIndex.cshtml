@@ -1,0 +1,27 @@
+﻿@model FinanceCalculator.Entities.Leasing
+
+@{
+    ViewData["Title"] = "Leasing Calculator";
+}
+
+<h2>Leasing Calculator</h2>
+
+<form method="post" action="@Url.Action("Calculate", "LeasingCalculation")">
+    <div class="form-group">
+        <label for="LeasingAmount">Leasing Amount</label>
+        <input type="number" step="0.01" class="form-control" id="LeasingAmount" name="LeasingAmount" required />
+    </div>
+    <div class="form-group">
+        <label for="InterestRate">Interest Rate (%)</label>
+        <input type="number" step="0.01" class="form-control" id="InterestRate" name="InterestRate" required />
+    </div>
+    <div class="form-group">
+        <label for="DurationMonths">Duration (Months)</label>
+        <input type="number" class="form-control" id="DurationMonths" name="DurationMonths" required />
+    </div>
+    <div class="form-group">
+        <label for="DownPayment">Down Payment</label>
+        <input type="number" step="0.01" class="form-control" id="DownPayment" name="DownPayment" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Calculate</button>
+</form>
