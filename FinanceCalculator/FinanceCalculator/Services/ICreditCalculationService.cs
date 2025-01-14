@@ -2,8 +2,8 @@
 {
     public interface ICreditCalculationService
     {
-        public decimal CalculateMonthlyPayment(decimal amount, decimal interestRate, int months);
-        public decimal CalculateTotalPayment(decimal monthlyPayment, int months);
-        public decimal CalculateTotalInterest(decimal totalPayment, decimal amount);
+        decimal CalculateMonthlyPayment(decimal amount, decimal interestRate, int months);
+        decimal CalculateTotalPayment(decimal monthlyPayment, int months);
+        decimal CalculateTotalInterest(decimal totalPayment, decimal amount);
     }
 }
