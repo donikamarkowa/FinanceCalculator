@@ -17,6 +17,7 @@ namespace FinanceCalculator
                  options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddScoped<ICreditCalculationService, CreditCalculationService>();
+            builder.Services.AddScoped<IRefinancingCalculationService, RefinancingCalculationService>();
 
 
             var app = builder.Build();
