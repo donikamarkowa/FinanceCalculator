@@ -1,0 +1,33 @@
+﻿@model FinanceCalculator.Entities.Refinancing
+
+@{
+    ViewData["Title"] = "Refinancing Calculation Results";
+}
+
+<h2>Refinancing Calculation Results</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Current Loan Amount</th>
+            <th>New Interest Rate (%)</th>
+            <th>New Duration (Months)</th>
+            <th>Monthly Payment</th>
+            <th>Total Payment</th>
+            <th>Savings</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.CurrentLoanAmount</td>
+            <td>@Model.NewInterestRate</td>
+            <td>@Model.NewDurationMonths</td>
+            <td>@Math.Round(Model.MonthlyPayment, 2)</td>
+            <td>@Math.Round(Model.TotalPayment, 2)</td>
+            <td>@Math.Round(Model.Savings, 2)</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<a class="btn btn-primary" href="@Url.Action("Index", "RefinancingCalculation")">Back to Refinancing Calculator</a>
