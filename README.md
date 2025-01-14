@@ -1,4 +1,4 @@
 # FinanceCalculator
 Responsive web application for financial calculations
 
-This project provides three financial calculators: Credit, Refinancing, and Leasing. Built with ASP.NET Core MVC, HTML5, CSS3, and JavaScript, it allows users to calculate monthly payments, total payments, and interest for different types of loans. The application uses EF Core for the backend, offering a seamless and user-friendly experience for financial calculations.
+The project is a responsive web application for financial calculations, developed as part of a course at NBU (New Bulgarian University). It includes three main calculators: credit, refinancing, and leasing. Built using ASP.NET Core MVC, HTML5, CSS3, and JavaScript, it allows users to calculate loan-related financial data and view detailed results.
