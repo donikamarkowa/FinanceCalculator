@@ -4,16 +4,31 @@
     ViewData["Title"] = "Leasing Calculation Result";
 }
 
-<h2>Calculation Results</h2>
+<div class="container mt-4">
+    <h2 class="text-center">Calculation Results</h2>
 
-<div>
-    <p><strong>Leasing Amount:</strong> @Model.LeasingAmount</p>
-    <p><strong>Interest Rate:</strong> @Model.InterestRate %</p>
-    <p><strong>Duration (Months):</strong> @Model.DurationMonths</p>
-    <p><strong>Down Payment:</strong> @Model.DownPayment</p>
-    <p><strong>Monthly Payment:</strong> @Model.MonthlyPayment.ToString("F2")</p>
-    <p><strong>Total Payment:</strong> @Model.TotalPayment.ToString("F2")</p>
-    <p><strong>Total Interest:</strong> @Model.TotalInterest.ToString("F2")</p>
+    <div class="card shadow-sm p-4">
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Leasing Amount:</strong> <span class="text-primary">@Model.LeasingAmount</span></p>
+                <p><strong>Interest Rate:</strong> <span class="text-primary">@Model.InterestRate %</span></p>
+                <p><strong>Duration (Months):</strong> <span class="text-primary">@Model.DurationMonths</span></p>
+                <p><strong>Down Payment:</strong> <span class="text-primary">@Model.DownPayment</span></p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Monthly Payment:</strong> <span class="text-success">@Model.MonthlyPayment.ToString("F2")</span></p>
+                <p><strong>Total Payment:</strong> <span class="text-success">@Model.TotalPayment.ToString("F2")</span></p>
+                <p><strong>Total Interest:</strong> <span class="text-success">@Model.TotalInterest.ToString("F2")</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="@Url.Action("Index", "LeasingCalculation")" class="btn btn-secondary btn-lg">Go Back</a>
+    </div>
 </div>
 
-<a href="@Url.Action("Index", "LeasingCalculation")" class="btn btn-secondary">Go Back</a>
+
+
+
+

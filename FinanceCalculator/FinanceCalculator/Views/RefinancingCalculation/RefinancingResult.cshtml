@@ -4,30 +4,25 @@
     ViewData["Title"] = "Refinancing Calculation Results";
 }
 
-<h2>Refinancing Calculation Results</h2>
+<div class="container mt-4">
+    <h2 class="text-center">Refinancing Calculation Results</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Current Loan Amount</th>
-            <th>New Interest Rate (%)</th>
-            <th>New Duration (Months)</th>
-            <th>Monthly Payment</th>
-            <th>Total Payment</th>
-            <th>Savings</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>@Model.CurrentLoanAmount</td>
-            <td>@Model.NewInterestRate</td>
-            <td>@Model.NewDurationMonths</td>
-            <td>@Math.Round(Model.MonthlyPayment, 2)</td>
-            <td>@Math.Round(Model.TotalPayment, 2)</td>
-            <td>@Math.Round(Model.Savings, 2)</td>
-        </tr>
-    </tbody>
-</table>
+    <div class="card shadow-sm p-4">
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Current Loan Amount:</strong> <span class="text-primary">@Model.CurrentLoanAmount</span></p>
+                <p><strong>New Interest Rate (%):</strong> <span class="text-primary">@Model.NewInterestRate</span></p>
+                <p><strong>New Duration (Months):</strong> <span class="text-primary">@Model.NewDurationMonths</span></p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Monthly Payment:</strong> <span class="text-success">@Math.Round(Model.MonthlyPayment, 2)</span></p>
+                <p><strong>Total Payment:</strong> <span class="text-success">@Math.Round(Model.TotalPayment, 2)</span></p>
+                <p><strong>Savings:</strong> <span class="text-success">@Math.Round(Model.Savings, 2)</span></p>
+            </div>
+        </div>
+    </div>
 
-
-<a class="btn btn-primary" href="@Url.Action("Index", "RefinancingCalculation")">Back to Refinancing Calculator</a>
+    <div class="text-center mt-4">
+        <a href="@Url.Action("Index", "RefinancingCalculation")" class="btn btn-secondary btn-lg">Go Back</a>
+    </div>
+</div>
