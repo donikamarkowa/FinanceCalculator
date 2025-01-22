@@ -20,7 +20,7 @@ namespace FinanceCalculator.Controllers
         // Action to display the data entry form
         public IActionResult Index()
         {
-            return View();
+            return View("CreditIndex");
         }
 
         // Action to calculate monthly payment, total payment and interest
@@ -29,7 +29,7 @@ namespace FinanceCalculator.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("Index");
+                return View("CreditIndex");
             }
 
             try
@@ -42,13 +42,13 @@ namespace FinanceCalculator.Controllers
                 _context.Credits!.Add(credit);
                 await _context.SaveChangesAsync();
 
-                return View("Result", credit);
+                return View("CreditResult", credit);
             }
             catch (Exception)
             {
                 // Handle errors
                 ModelState.AddModelError("", "An error occurred while processing your request.");
-                return View("Index");
+                return View("CreditIndex");
             }
         }
     }
