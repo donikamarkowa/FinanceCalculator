@@ -4,30 +4,40 @@
     ViewData["Title"] = "Credit Calculation";
 }
 
-<h2>Calculate Credit</h2>
+<div class="container mt-4">
+    <h2 class="text-center">Calculate Your Credit</h2>
 
-<form asp-action="Calculate" method="post">
-    <div class="form-group">
-        <label asp-for="Amount" class="control-label"></label>
-        <input asp-for="Amount" class="form-control" type="number" step="0.01" />
-        <span asp-validation-for="Amount" class="text-danger"></span>
-    </div>
+    <form asp-action="Calculate" method="post" class="form-horizontal">
+        <div class="form-group">
+            <label asp-for="Amount" class="control-label col-md-4">Credit Amount</label>
+            <div class="col-md-6">
+                <input asp-for="Amount" class="form-control" type="number" step="0.01" placeholder="Enter the amount" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="InterestRate" class="control-label"></label>
-        <input asp-for="InterestRate" class="form-control" type="number" step="0.01" />
-        <span asp-validation-for="InterestRate" class="text-danger"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="InterestRate" class="control-label col-md-4">Interest Rate (%)</label>
+            <div class="col-md-6">
+                <input asp-for="InterestRate" class="form-control" type="number" step="0.01" placeholder="Enter interest rate" />
+                <span asp-validation-for="InterestRate" class="text-danger"></span>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="DurationMonths" class="control-label"></label>
-        <input asp-for="DurationMonths" class="form-control" type="number" />
-        <span asp-validation-for="DurationMonths" class="text-danger"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="DurationMonths" class="control-label col-md-4">Duration (Months)</label>
+            <div class="col-md-6">
+                <input asp-for="DurationMonths" class="form-control" type="number" placeholder="Enter duration in months" />
+                <span asp-validation-for="DurationMonths" class="text-danger"></span>
+            </div>
+        </div>
 
-    <button type="submit" class="btn btn-primary">Calculate</button>
-</form>
+        <div class="form-group text-center mt-4">
+            <button type="submit" class="btn btn-primary btn-lg">Calculate</button>
+        </div>
+    </form>
+</div>
 
 @section Scripts {
-        <partial name="_ValidationScriptsPartial" />
+    <partial name="_ValidationScriptsPartial" />
 }
