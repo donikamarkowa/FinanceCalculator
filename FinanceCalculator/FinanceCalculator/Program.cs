@@ -48,7 +48,7 @@ namespace FinanceCalculator
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=CreditCalculation}/{action=Index}/{id?}");
+                pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
         }
