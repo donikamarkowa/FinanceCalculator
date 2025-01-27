@@ -10,12 +10,15 @@ namespace FinanceCalculator.Controllers
         private readonly IRefinancingCalculationService _refinancingService;
         private readonly FinanceCalculatorDbContext _context;
 
+        // Inject dependencies
         public RefinancingCalculationController(IRefinancingCalculationService refinancingService, FinanceCalculatorDbContext context)
         {
             _refinancingService = refinancingService;
             _context = context;
         }
 
+
+        // Action to display the data entry form
         public IActionResult Index()
         {
             return View("RefinancingIndex");
@@ -31,10 +34,17 @@ namespace FinanceCalculator.Controllers
 
             try
             {
+
+                // Calculate the monthly payment
                 refinancing.MonthlyPayment = _refinancingService.CalculateMonthlyPayment(refinancing.CurrentLoanAmount, refinancing.NewInterestRate, refinancing.NewDurationMonths);
+
+                // Calculate the total payment
                 refinancing.TotalPayment = _refinancingService.CalculateTotalPayment(refinancing.MonthlyPayment, refinancing.NewDurationMonths);
+
+                // Calculate the savings from refinancing
                 refinancing.Savings = _refinancingService.CalculateSavings(refinancing.CurrentLoanAmount, refinancing.TotalPayment);
 
+                // Add the refinancing record to the database
                 _context.Refinancings!.Add(refinancing);
                 await _context.SaveChangesAsync();
 
@@ -42,6 +52,7 @@ namespace FinanceCalculator.Controllers
             }
             catch (Exception)
             {
+                // If an error occurs, add a model error and return the user to the form
                 ModelState.AddModelError("", "An error occurred while processing your request.");
                 return View("RefinancingIndex");
             }
