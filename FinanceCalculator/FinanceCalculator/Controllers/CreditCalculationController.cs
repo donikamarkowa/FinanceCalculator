@@ -29,7 +29,7 @@ namespace FinanceCalculator.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("CreditIndex");
+                return View("CreditIndex", credit);
             }
 
             try
