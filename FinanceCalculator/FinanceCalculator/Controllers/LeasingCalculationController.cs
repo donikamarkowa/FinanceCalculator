@@ -29,7 +29,7 @@ namespace FinanceCalculator.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("LeasingIndex");
+                return View("LeasingIndex", leasing);
             }
 
             try
@@ -50,6 +50,7 @@ namespace FinanceCalculator.Controllers
                 // Save the leasing data to the database
                 _context.Leasings!.Add(leasing); // Add the leasing object to the database context
                 await _context.SaveChangesAsync();
+
                 return View("LeasingResult", leasing);
             }
             catch (Exception)
