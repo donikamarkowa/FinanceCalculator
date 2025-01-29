@@ -1,0 +1,136 @@
+﻿@{
+    ViewData["Title"] = "FAQ - Frequently Asked Questions";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center">Frequently Asked Questions (FAQ)</h2>
+
+    <div class="accordion" id="faqAccordion">
+        <!-- Existing Questions -->
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        What is Refinancing?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                <div class="card-body">
+                    Refinancing is the process of replacing an existing loan with a new loan, usually with better terms like a lower interest rate or extended repayment period.
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        What is the difference between Loan and Lease?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                <div class="card-body">
+                    A loan is money borrowed with the expectation of paying it back with interest. A lease is a long-term rental agreement for an asset such as a car or equipment.
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        What is an Interest Rate?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
+                <div class="card-body">
+                    An interest rate is the percentage charged on the principal amount for borrowing money. It is how lenders make a profit on loans.
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingFour">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        How do I calculate my monthly payment for a loan?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
+                <div class="card-body">
+                    The monthly payment for a loan can be calculated using a formula based on the loan amount, interest rate, and duration. Our application helps you calculate that automatically.
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Questions -->
+        <div class="card">
+            <div class="card-header" id="headingFive">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        Can I pay off my loan early without penalty?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#faqAccordion">
+                <div class="card-body">
+                    It depends on the terms of your loan agreement. Some loans may allow early repayment without penalty, while others may impose fees for paying off the loan early.
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingSix">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        What is the best time to refinance a loan?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#faqAccordion">
+                <div class="card-body">
+                    The best time to refinance is when interest rates are lower than your current loan rate, or when your financial situation has improved, allowing you to qualify for better terms.
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingSeven">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                        What factors should I consider when refinancing?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#faqAccordion">
+                <div class="card-body">
+                    When refinancing, consider the interest rate, loan term, fees, and your financial situation. Refinancing can be beneficial if it helps you get a lower interest rate or a shorter loan term.
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" id="headingEight">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                        What is an amortization schedule?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#faqAccordion">
+                <div class="card-body">
+                    An amortization schedule is a table that shows each payment of a loan, detailing how much goes toward the interest and how much goes toward the principal balance over the life of the loan.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+}
