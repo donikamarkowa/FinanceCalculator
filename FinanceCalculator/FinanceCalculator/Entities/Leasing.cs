@@ -8,18 +8,24 @@ namespace FinanceCalculator.Entities
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Leasing amount is required.")]
+        [Range(1, double.MaxValue, ErrorMessage = "Leasing amount must be greater than 0.")]
         [Column(TypeName = "decimal(18,2)")]
         public decimal LeasingAmount { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Interest rate is required.")]
+        [Range(0.01, 100, ErrorMessage = "Interest rate must be between 0.01% and 100%.")]
         [Column(TypeName = "decimal(18,2)")]
         public decimal InterestRate { get; set; }
 
-        [Required]
+
+        [Required(ErrorMessage = "Duration is required.")]
+        [Range(1, int.MaxValue, ErrorMessage = "Duration must be at least 1 month.")]
         public int DurationMonths { get; set; }
 
-        [Required]
+
+        [Required(ErrorMessage = "Down payment is required.")]
+        [Range(0, double.MaxValue, ErrorMessage = "Down payment cannot be negative.")]
         [Column(TypeName = "decimal(18,2)")]
         public decimal DownPayment { get; set; }
 
