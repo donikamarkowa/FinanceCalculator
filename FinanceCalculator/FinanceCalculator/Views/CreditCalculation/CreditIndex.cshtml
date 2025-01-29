@@ -11,7 +11,7 @@
         <div class="form-group">
             <label asp-for="Amount" class="control-label col-md-4">Credit Amount</label>
             <div class="col-md-6">
-                <input asp-for="Amount" class="form-control" type="number" step="0.01" placeholder="Enter the amount" />
+                <input asp-for="Amount" class="form-control" type="number" step="0.01" placeholder="Enter the amount" value="@Model?.Amount" />
                 <span asp-validation-for="Amount" class="text-danger"></span>
             </div>
         </div>
@@ -19,7 +19,7 @@
         <div class="form-group">
             <label asp-for="InterestRate" class="control-label col-md-4">Interest Rate (%)</label>
             <div class="col-md-6">
-                <input asp-for="InterestRate" class="form-control" type="number" step="0.01" placeholder="Enter interest rate" />
+                <input asp-for="InterestRate" class="form-control" type="number" step="0.01" placeholder="Enter interest rate" value="@Model?.InterestRate" />
                 <span asp-validation-for="InterestRate" class="text-danger"></span>
             </div>
         </div>
@@ -27,7 +27,7 @@
         <div class="form-group">
             <label asp-for="DurationMonths" class="control-label col-md-4">Duration (Months)</label>
             <div class="col-md-6">
-                <input asp-for="DurationMonths" class="form-control" type="number" placeholder="Enter duration in months" />
+                <input asp-for="DurationMonths" class="form-control" type="number" placeholder="Enter duration in months" value="@Model?.DurationMonths" />
                 <span asp-validation-for="DurationMonths" class="text-danger"></span>
             </div>
         </div>
