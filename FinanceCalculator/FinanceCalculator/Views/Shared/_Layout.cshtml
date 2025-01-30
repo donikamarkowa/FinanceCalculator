@@ -29,6 +29,18 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "About" ? "active" : "")"
+                               asp-controller="About" asp-action="Index">
+                                <i class="fas fa-info-circle"></i> About
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "FAQ" ? "active" : "")"
+                               asp-controller="FAQ" asp-action="Index">
+                                <i class="fas fa-question-circle"></i> FAQ
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "CreditCalculation" ? "active" : "")"
                                asp-controller="CreditCalculation" asp-action="Index">
                                 <i class="fas fa-coins"></i> Credit Calculator
@@ -46,13 +58,6 @@
                                 <i class="fas fa-car"></i> Leasing Calculator
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "FAQ" ? "active" : "")"
-                               asp-controller="FAQ" asp-action="Index">
-                                <i class="fas fa-question-circle"></i> FAQ
-                            </a>
-                        </li>
-
                     </ul>
                 </div>
             </div>
